@@ -23,6 +23,7 @@ export class LinkPreviewCard extends DDDSuper(I18NMixin(LitElement)) {
     this.webLink = "";
     this.description = "";
     this.imageLink = "";
+    this.loading = false;
 
     this.t = this.t || {};
     this.t = {
@@ -82,6 +83,28 @@ export class LinkPreviewCard extends DDDSuper(I18NMixin(LitElement)) {
           height: auto;
           margin: var(--ddd-spacing-2);
         }
+
+        /* HTML: <div class="loader"></div> */
+        .loader {
+          width: fit-content;
+          font-weight: bold;
+          font-family: monospace;
+          text-shadow: 0 0 0 rgb(255 0 0), 0 0 0 rgb(0 255 0),
+            0 0 0 rgb(0 0 255);
+          font-size: 30px;
+          animation: l32 1s infinite cubic-bezier(0.5, -2000, 0.5, 2000);
+        }
+        .loader:before {
+          content: "Loading...";
+        }
+
+        @keyframes l32 {
+          25%,
+          100% {
+            text-shadow: 0.03px -0.01px 0.01px rgb(255 0 0),
+              0.02px 0.02px 0 rgb(0 255 0), -0.02px 0.02px 0 rgb(0 0 255);
+          }
+        }
       `,
     ];
   }
@@ -109,6 +132,7 @@ export class LinkPreviewCard extends DDDSuper(I18NMixin(LitElement)) {
   }
 
   updateResults(value) {
+    this.loading = true;
     fetch(
       `https://corsproxy.io/?url=https://open-apis.hax.cloud/api/services/website/metadata?q=${this.webLink}`
     )

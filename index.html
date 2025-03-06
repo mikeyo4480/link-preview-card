@@ -41,12 +41,14 @@
       <h1>link-preview-card</h1>
       <!-- this is going to do whatever the tag's defaults are -->
       <h2>Default</h2>
+      <h1>Search inputs</h1>
+      <div>
+        <input id="input" placeholder="Search" @input="${this.inputChanged}" />
+      </div>
       <link-preview-card web-link="https://www.cnn.com"></link-preview-card>
       <link-preview-card web-link="https://www.ihop.com"></link-preview-card>
       <link-preview-card web-link="https://www.canvas.com"></link-preview-card>
       <link-preview-card web-link="https://www.apple.com"></link-preview-card>
-
-
     </div>
     <script type="module" src="./link-preview-card.js"></script>
   </body>
