@@ -27,6 +27,12 @@
       link-preview-card:hover {
         box-shadow: var(--ddd-boxShadow-sm);
       }
+      h1,
+      h2 {
+        margin: auto;
+        text-align: center;
+        color: var(--ddd-primary-2);
+      }
       #example {
         --link-preview-card-font-size: var(--ddd-font-size-l);
         background-color: var(--ddd-accent-2);
@@ -39,17 +45,16 @@
   <body>
     <div id="demo">
       <h1>link-preview-card</h1>
-      <!-- this is going to do whatever the tag's defaults are -->
       <h2>Default</h2>
       <h1>Search inputs</h1>
-      <div>
-        <input id="input" placeholder="Search" @input="${this.inputChanged}" />
-      </div>
-      <link-preview-card web-link="https://www.cnn.com"></link-preview-card>
-      <link-preview-card web-link="https://www.ihop.com"></link-preview-card>
-      <link-preview-card web-link="https://www.canvas.com"></link-preview-card>
-      <link-preview-card web-link="https://www.apple.com"></link-preview-card>
-    </div>
+      <link-preview-card id="search-card"></link-preview-card>
+      <link-preview-card id="search-card" web-link="https://www.cnn.com"></link-preview-card>
+      <link-preview-card id="search-card" web-link="https://www.abc.com"></link-preview-card>
+      <link-preview-card id="search-card" web-link="https://www.nbc.com"></link-preview-card>
+      <link-preview-card id="search-card" web-link="https://www.ihop.com"></link-preview-card>
+
+
+
     <script type="module" src="./link-preview-card.js"></script>
   </body>
 </html>
